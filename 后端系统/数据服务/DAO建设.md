@@ -122,19 +122,6 @@ orm结构
 field-tag: `query:unique;exp=between;order=asc;`
 exp: gt, ge, lt, le, eq, ne, nil, nnil, between([2]slice), in([n]slice)
 
-`Option`
-	DAO的可選插件，DAO的接口都接受插件參數 ...options
-type Option func(daoDriver interface)
-
-
-`Pager` ，用於分頁查詢，不受具體數據庫約束
-Pager{
-	no:1, 	//當前頁
-	size:10, 	//每頁數據量
-	count:3, 	//總數據量
-	total:27	//總頁數
-}
-
 `QueryParam`，DAO層的查詢結構，内嵌Pager，不要將其他層的request混進來，request的查詢結構應該貼合業務，QueryParam偏向通用設計，甚至以ORM方式驅動，將request轉爲QueryParam是service的邏輯
 interface QueryParam{
 	Pager() Pager
@@ -153,10 +140,7 @@ Result{
 	RecordNotFound，無論列表還是單個，不受具體數據庫約束，接口可決定是否嚴格返回錯誤，用Option形式，
 		例如：userDao.Get(1, ...option) => RequiredOption -> if (notFound){ return RecordNotFound }
 
-
-
-
-注意区分API层和DAO层的error，以下是数据平台API层的Error
+注意区分API层和DAO层的error，以下是数据平台API层的Error示例，目前先忽略
 Error{
 	Code: 200
 	Msg: "my err msg"	//非必須
