@@ -40,3 +40,5 @@ export OLLAMA_NUM_PARALLEL=8          # 单模型并发路数
 export OLLAMA_MAX_LOADED_MODELS=4     # 同时驻留内存的模型份数
 ollama serve
 ```
+
+Ollama 只是 LLM 的“运行时外壳”，它加载的模型必须能被 llama.cpp 解码，而 llama.cpp 目前只实现了 Transformer-Decoder 架构（自注意力 + 前馈）。画图用的 Stable Diffusion 是 UNet + VAE + DDIM，算子集合完全不同；llama.cpp 里没有卷积、GroupNorm、调度器等模块，所以 Ollama 天然跑不了图。想文生图必须另起服务（SD-WebUI/ComfyUI），Ollama 顶多帮你写 prompt。
