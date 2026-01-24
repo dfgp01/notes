@@ -1,14 +1,4 @@
 
-kimi推荐了 Tensor.Art（https://tensor.art）这个云出图的平台，但看不到注册登陆等社区入口，先忽略
-
-另一个是本地跑：ComfyUI-M4-Portable（GitHub 搜同名）
-已适配 Apple Silicon（含 M4），解压即用，自带 pytorch-nightly + MPS 加速
-整合常用节点（IPAdapter、ControlNet、AnimateDiff 等）
-自带模型管理器，一键下载 SDXL、Flux、Lora
-
-但是本地配置还会有其他问题，目前考虑的方案是魔搭社区一类的云平台，低费用。因目前只是体验和小规模使用，在后面深度使用后再本地，也许都要换更高级别的mac了
-
-需要本地部署的话再咨询kimi，因目前丐版（16+256）要做很多优化相关，主要是到“炼丹”的时候才需要考虑
 
 ###### 关于魔搭社区notebook使用
 
